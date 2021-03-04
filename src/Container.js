@@ -1,18 +1,20 @@
-function Container({ value }){
+function Container({ value, js }){
     
+    console.log(js)
 
-    // const code =`
-    //     console.log(${value})
-    //    `
-
+    const code =`
+        ${value}
+        `
 
     return (
-        <div>
-        <script type="text/javascript" dangerouslySetInnerHTML={{
-            __html: `console.log("yo");`
-        }}></script>
+        <div dangerouslySetInnerHTML={{
+            __html: code
+        }}>
         </div>
     )
 }
 
 export default Container
+
+{/* <p id="demo"></p>
+document.getElementById("demo").innerHTML = 5 + 6; */}
