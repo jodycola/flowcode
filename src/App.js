@@ -1,23 +1,23 @@
 import React, { useState } from "react"
 import AceEditor from "react-ace"
-import Container from "./Container"
 
 import "ace-builds/src-noconflict/mode-xml"
+import "ace-builds/src-noconflict/mode-css"
 import "ace-builds/src-noconflict/mode-javascript"
-import "ace-builds/src-noconflict/theme-monokai"
 
 function App() {
   const [html, setHtml] = useState("")
   const [css, setCss] = useState("")
   const [js, setJs] = useState("")
 
-  const sourceCode = `
+  const srcdoc = `
   <html>
     <body>${html}</body>
     <style>${css}</style>
     <script>${js}</script>
   </html>
   `
+
   return (
   <div>
     <div>
@@ -28,26 +28,24 @@ function App() {
       height="200px"
       />
       <AceEditor 
-      mode="javascript"
-      onChange={setJs}
-      js={js}
+      mode="css"
+      onChange={setCss}
+      value={css}
       height="200px"
       />
       <AceEditor 
-      mode="css"
-      onChange={setCss}
-      js={css}
+      mode="javascript"
+      onChange={setJs}
+      value={js}
       height="200px"
       />
     </div>
-    <div>
       <iframe
-      sourceCode={sourceCode}
-      title="output"
+      srcdoc={srcdoc}
+      title="title"
       sandbox="allow-scripts"
       width="100%"
       />
-    </div>
   </div>
   )
 }
