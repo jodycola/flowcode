@@ -1,24 +1,14 @@
 import React, { useState } from "react"
 // COMPONENTS
-import Editor from "./Editor"
-import Display from "./Display"
 import NavBar from "./NavBar"
+import Main from "./Main"
+import Collection from "./Collection"
 
 const url = "http://localhost:3000/projects"
 
 function App() {
-  const [html, setHtml] = useState("")
-  const [css, setCss] = useState("")
-  const [js, setJs] = useState("")
   const [darkMode, setDarkMode] = useState(false)
 
- const srcDoc = `
-  <html>
-    <body>${html}</body>
-    <style>${css}</style>
-    <script>${js}</script>
-  </html>
-  `
   function toggleDark(){
     setDarkMode(!darkMode)
     if ( darkMode === false ) {
@@ -28,7 +18,7 @@ function App() {
     }
   }
 
-  function handleSave(){
+  function handleSave(html, css, js){
     fetch(`${url}`, {
       method: 'POST',
       headers: {
@@ -46,36 +36,12 @@ function App() {
   <div>
     <NavBar 
     toggleDark={toggleDark}
+    />
+    <Main
+    darkMode={darkMode}
     handleSave={handleSave}
     />
-    <div className="editor-panel">
-      <Editor 
-      mode="xml"
-      language="HTML"
-      value={html}
-      onChange={setHtml}
-      darkMode={darkMode}
-      />
-      <Editor 
-      mode="css"
-      language="CSS"
-      value={css}
-      onChange={setCss}
-      darkMode={darkMode}
-      />
-      <Editor 
-      mode="javascript"
-      language="JAVASCRIPT"
-      value={js}
-      onChange={setJs}
-      darkMode={darkMode}
-      />
-    </div>
-    <div className="display-panel">
-      <Display
-      srcDoc={srcDoc}
-      />
-    </div>
+    <Collection />
   </div>
   )
 }

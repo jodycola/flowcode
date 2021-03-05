@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 
-function NavBar({ toggleDark, handleSave }){
+function NavBar({ toggleDark }){
 
     return (
         <div className="nav">
@@ -10,15 +10,11 @@ function NavBar({ toggleDark, handleSave }){
             Dark Mode
             </button>
 
-            <button className="save-button" onClick={handleSave}>
-            Save
-            </button>
-
             <Link to="/" className="home-button">
                 Home
             </Link>
 
-            <Link to="/collections" className="project-collection">
+            <Link to="/collection" className="project-collection">
                 Collections
             </Link>
 
