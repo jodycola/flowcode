@@ -25,6 +25,14 @@ body {
     right: 300px;
     top: 15px
 }
+
+.home-button {
+    position: absolute;
+    right: 375px;
+    top: 15px;
+    border: 2px solid black
+}
+
 /* Text Editor Properties */
 .editor-panel {
     position: absolute;
@@ -40,3 +48,4 @@ body {
     border-radius: 5px;
 
 }
+

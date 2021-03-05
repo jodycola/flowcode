@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+// COMPONENTS
 import Editor from "./Editor"
 import Display from "./Display"
 import NavBar from "./NavBar"
