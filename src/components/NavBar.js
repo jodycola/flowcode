@@ -1,4 +1,4 @@
-function NavBar({ toggleDark }){
+function NavBar({ toggleDark, handleSave }){
 
     return (
         <div className="nav">
@@ -8,6 +8,9 @@ function NavBar({ toggleDark }){
             <button className="project-collection">
             Collections
             </button> 
+            <button className="save-button" onClick={handleSave}>
+            Save
+            </button>
         </div>
     )
 }

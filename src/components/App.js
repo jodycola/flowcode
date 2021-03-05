@@ -3,6 +3,8 @@ import Editor from "./Editor"
 import Display from "./Display"
 import NavBar from "./NavBar"
 
+const url = "http://localhost:3000/projects"
+
 function App() {
   const [html, setHtml] = useState("")
   const [css, setCss] = useState("")
@@ -18,7 +20,6 @@ function App() {
   `
   function toggleDark(){
     setDarkMode(!darkMode)
-    console.log(darkMode)
     if ( darkMode === false ) {
       document.body.style.backgroundColor = "#2e2d2c";
     } else {
@@ -26,10 +27,25 @@ function App() {
     }
   }
 
+  function handleSave(){
+    fetch(`${url}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({html, css, js}),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+  }
+
   return (
   <div>
     <NavBar 
     toggleDark={toggleDark}
+    handleSave={handleSave}
     />
     <div className="editor-panel">
       <Editor 

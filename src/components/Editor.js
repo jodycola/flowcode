@@ -12,7 +12,6 @@ import "ace-builds/src-noconflict/theme-github"
 
 function Editor({ mode, language, value, onChange, darkMode }) {
 
-
     return (
         <div className="editor-container">
             <div className="editor-title" style={darkMode ? {color: "white"} : {color: "black"}}>

@@ -20,6 +20,11 @@ body {
     top: 15px
 }
 
+.save-button {
+    position: absolute;
+    right: 300px;
+    top: 15px
+}
 /* Text Editor Properties */
 .editor-panel {
     position: absolute;
