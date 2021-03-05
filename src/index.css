@@ -1,0 +1,37 @@
+/* App Properties */
+body {
+    margin: 5;
+}
+
+/* NavBar Prperties */
+.nav {
+    padding: 30px;
+}
+
+.dark-mode {
+    position: absolute;
+    right: 200px;
+    top: 15px;
+}
+
+.project-collection {
+    position: absolute;
+    right: 100px;
+    top: 15px
+}
+
+/* Text Editor Properties */
+.editor-panel {
+    position: absolute;
+}
+
+/* Display Properties */
+.frame {
+    position: absolute;
+    right: 0px;
+    width: 60%;
+    height: 90%;
+    border: 2px solid black;
+    border-radius: 5px;
+
+}
