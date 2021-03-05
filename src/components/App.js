@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Switch, Route } from "react-router-dom"
 // COMPONENTS
 import NavBar from "./NavBar"
 import Main from "./Main"
@@ -37,11 +38,17 @@ function App() {
     <NavBar 
     toggleDark={toggleDark}
     />
-    <Main
-    darkMode={darkMode}
-    handleSave={handleSave}
-    />
-    <Collection />
+    <Switch>
+      <Route exact path="/">
+        <Main
+        darkMode={darkMode}
+        handleSave={handleSave}
+        />
+      </Route>
+      <Route exact path="/collection">
+        <Collection />
+      </Route>
+    </Switch>
   </div>
   )
 }

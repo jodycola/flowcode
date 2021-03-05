@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 
 function NavBar({ toggleDark }){
@@ -10,13 +10,13 @@ function NavBar({ toggleDark }){
             Dark Mode
             </button>
 
-            <Link to="/" className="home-button">
+            {/* <NavLink to="/" className="home-button">
                 Home
-            </Link>
+            <NavLink/>
 
-            <Link to="/collection" className="project-collection">
+            <NavLink to="/collection" className="project-collection">
                 Collections
-            </Link>
+            </NavLink> */}
 
         </div>
     )
