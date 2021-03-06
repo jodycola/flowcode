@@ -17,7 +17,7 @@ function Main({ darkMode, handleSave }){
 
 return (
     <div className="main-container">
-        <button className="save-button" onClick={handleSave(html, css, js)}>
+        <button className="save-button" onClick={() => handleSave}>
         Save
         </button>
         <div className="editor-panel">
