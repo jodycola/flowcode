@@ -1,23 +1,17 @@
 import React from "react"
 
-function Project({ project }){
+function Project({ project, setSelectProject}){
     const { id, title, html, css, javascript } = project
 
-    function selectProject(event){
-        console.log(event.target)
-    }
+   function handleSelect() {
+       setSelectProject(id)
+   }
 
-    // return (
-    //     <div className="project-container">
-    //         <h1>{title}</h1>
-    //         <p>{html}</p>
-    //     </div>
-    // )
-
+  
 
     return (
-        <div className="project-container">
-   <h1>{title}</h1>
+        <div className="collection-container" onClick={handleSelect}>
+   <h4>{title}</h4>
    <div className="content-container">
        <div className="card">
            <div className="content">
@@ -31,39 +25,6 @@ function Project({ project }){
 </div>
 
     )
-
-
-
-
-
-
-
-
-//     return (
-//         <div className="collection-container">
-//             <div className="information-container">
-//                 <p>{user}</p>
-//             </div>
-//             {displayProject}
-//         </div>
-
-//         <div class="card">
-//             <div class="content">
-//                 <div class="header">Elliot Fu</div>
-//                 <div class="description">
-//                 Elliot Fu is a film-maker from New York.
-//                 </div>
-//             </div>
-//         </div>
-
-//     </div>
-// </div>
-    // )
-
-
-
-
-
 }
 
 export default Project

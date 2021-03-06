@@ -3,13 +3,9 @@ import Project from "./Project"
 
 
 const project_url = "http://localhost:3000/projects"
-const user_url = "http://localhost:3000/users"
 
-
-function Collection(){
+function Collection({setSelectProject}){
     const [projects, setProjects] = useState([])
-    const [user, setUser] = useState("")
-    console.log(projects)
 
 useEffect(() => {
     fetch(project_url)
@@ -17,28 +13,21 @@ useEffect(() => {
     .then(setProjects)
 }, [])
 
+
 const displayProject = projects.map((project) => {
-
-    console.log(project)
-
+    
     return <Project 
+        setSelectProject={setSelectProject}
         key={project.id}
         project={project}
     />
 })
 
-    return (
-    //    
-    //     <div className="collection-container">
-    //     <div className="information-container">
-    //         <p>{user}</p>
-    //     </div>
+    return (  
         <div>
-            <h1>Project Collection</h1>
+            <h2>Project Collection</h2>
             {displayProject}
         </div>
-    // </div>
-
     )
        
 

@@ -4,10 +4,12 @@ import Display from "./Display"
 
 const url = "http://localhost:3000/projects"
 
-function Main({ darkMode }){
+function Main({ darkMode, selectProject, onShowProject }){
     const [html, setHtml] = useLocalStorage("html", "")
     const [css, setCss] = useLocalStorage("css", "")
     const [js, setJs] = useLocalStorage("js", "")
+    
+
 
 const srcDoc = `
     <html>
@@ -43,8 +45,6 @@ function handleSave(html, css, js){
       console.log('Success:', data);
     })
   }
-
-
 
 return (
     <div className="main-container">
