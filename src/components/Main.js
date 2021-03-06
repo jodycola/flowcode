@@ -1,13 +1,13 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Editor from "./Editor"
 import Display from "./Display"
 
 const url = "http://localhost:3000/projects"
 
 function Main({ darkMode }){
-    const [html, setHtml] = useState("")
-    const [css, setCss] = useState("")
-    const [js, setJs] = useState("")
+    const [html, setHtml] = useLocalStorage("html", "")
+    const [css, setCss] = useLocalStorage("css", "")
+    const [js, setJs] = useLocalStorage("js", "")
 
 const srcDoc = `
     <html>
@@ -17,6 +17,19 @@ const srcDoc = `
     </html>
     `
 
+// LOCAL STORAGE HOOK
+function useLocalStorage(key, initialValue) {
+    const [value, setValue] = useState(() => {
+        const item = window.localStorage.getItem(key)
+        return item ? JSON.parse(item) : initialValue
+        setValue(item)
+    })
+    window.localStorage.setItem(key, JSON.stringify(value))
+    return [value, setValue]
+}
+
+
+// HANDLER FUNCTION
 function handleSave(html, css, js){
     fetch(`${url}`, {
       method: 'POST',
@@ -30,6 +43,8 @@ function handleSave(html, css, js){
       console.log('Success:', data);
     })
   }
+
+
 
 return (
     <div className="main-container">
