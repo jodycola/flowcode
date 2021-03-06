@@ -10,13 +10,13 @@ function NavBar({ toggleDark }){
             Dark Mode
             </button>
 
-            {/* <NavLink to="/" className="home-button">
+            <NavLink exact to="/" className="home-button">
                 Home
-            <NavLink/>
+            </NavLink>
 
-            <NavLink to="/collection" className="project-collection">
+            <NavLink exact to="/collection" className="project-collection">
                 Collections
-            </NavLink> */}
+            </NavLink>
 
         </div>
     )
