@@ -24,13 +24,20 @@ body {
 
 .project-collection {
     position: absolute;
-    right: 100px;
-    top: 15px
+    right: 15px;
+    top: 15px;
+    background-color: #555555; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
 }
 
 .save-button {
     position: absolute;
-    right: 300px;
+    right: 283px;
     top: 15px;
     background-color: #555555; /* Green */
     border: none;
@@ -45,7 +52,7 @@ body {
     position: absolute;
     right: 375px;
     top: 15px;
-    background-color: #4CAF50; /* Green */
+    background-color: #555555; /* Green */
     border: none;
     color: white;
     padding: 10px 24px;
@@ -100,7 +107,7 @@ body {
 }
 
 .content-container{
-    width: 50%;
+    width: 100%;
     float: left;
     display: inline-block;
 }

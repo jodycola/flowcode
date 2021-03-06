@@ -1,64 +1,46 @@
-// import NavBar from "./NavBar"
+import React, { useState, useEffect } from "react"
+import Project from "./Project"
+
+
+const project_url = "http://localhost:3000/projects"
+const user_url = "http://localhost:3000/users"
+
 
 function Collection(){
-    // return (
-    //     <div className="collection-container">
-    //         {/* <NavBar /> */}
-    //         <div className="information-container">
-    //             <h1> here is the info </h1>
-    //         </div>
-    //         <div className="project-container">
-    //             <h1> here go the projects </h1>
-    //         </div>
-    //     </div>
-    // )
+    const [projects, setProjects] = useState([])
+    const [user, setUser] = useState("")
+    console.log(projects)
+
+useEffect(() => {
+    fetch(project_url)
+    .then(r => r.json())
+    .then(setProjects)
+}, [])
+
+const displayProject = projects.map((project) => {
+
+    console.log(project)
+
+    return <Project 
+        key={project.id}
+        project={project}
+    />
+})
 
     return (
-<div className="collection-container">
-        <div className="information-container">
-                <h1> Information Here </h1>
+    //    
+    //     <div className="collection-container">
+    //     <div className="information-container">
+    //         <p>{user}</p>
+    //     </div>
+        <div>
+            <h1>Project Collection</h1>
+            {displayProject}
         </div>
-    <h1>Projects</h1>
-    <div class="content-container">
-        <div class="card">
-            <div class="content">
-                <div class="header">Html</div>
-                <div class="description">
-                Elliot Fu is a film-maker from New York.
-                </div>
-            </div>
-        </div>
+    // </div>
 
-        <div class="card">
-            <div class="content">
-                <div class="header">CSS</div>
-                <div class="description">
-                Elliot Fu is a film-maker from New York.
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="content">
-                <div class="header">Javascript</div>
-                <div class="description">
-                Elliot Fu is a film-maker from New York.
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="content">
-                <div class="header">Elliot Fu</div>
-                <div class="description">
-                Elliot Fu is a film-maker from New York.
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
     )
+       
 
 
 

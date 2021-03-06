@@ -2,12 +2,14 @@ import React, { useState } from "react"
 import Editor from "./Editor"
 import Display from "./Display"
 
-function Main({ darkMode, handleSave }){
+const url = "http://localhost:3000/projects"
+
+function Main({ darkMode }){
     const [html, setHtml] = useState("")
     const [css, setCss] = useState("")
     const [js, setJs] = useState("")
 
-    const srcDoc = `
+const srcDoc = `
     <html>
         <body>${html}</body>
         <style>${css}</style>
@@ -15,9 +17,23 @@ function Main({ darkMode, handleSave }){
     </html>
     `
 
+function handleSave(html, css, js){
+    fetch(`${url}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({html, css, js}),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+  }
+
 return (
     <div className="main-container">
-        <button className="save-button" onClick={() => handleSave}>
+        <button className="save-button" onClick={() => handleSave(html, css, js)}>
         Save
         </button>
         <div className="editor-panel">
