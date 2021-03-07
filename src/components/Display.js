@@ -1,5 +1,6 @@
 
 function Display({ srcDoc }) {
+
     return (
         <iframe
             className="frame"

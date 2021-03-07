@@ -10,9 +10,11 @@ const url = "http://localhost:3000/projects"
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
-  const [selectProject, setSelectProject] = useState("")
-  const [displayProject, setDisplayProject] = useState("")
+  const [selected, setSelected] = useState("")
+  const [formKey, setFormKey] = useState(10)
 
+
+  // DARK MODE TOGGLE
   function toggleDark(){
     setDarkMode(!darkMode)
     if ( darkMode === false ) {
@@ -22,19 +24,12 @@ function App() {
     }
   }
 
- useEffect(() => {
+  // SET SELECTED PROJECT STATE FOR CRUD ACTIONS
+  function selectProject(project){
+    setSelected(project)
+  }
+  console.log(selected)
 
-  fetch(`${url}/${selectProject}`)
-  .then(response => response.json())
-  .then(data => setDisplayProject(data))
-
- }, [])
-
- console.log(displayProject)
-
- function showProject() {
-   
- }
 
   return (
   <div>
@@ -44,14 +39,16 @@ function App() {
     <Switch>
       <Route exact path="/">
         <Main
+        key={formKey}
+        setFormKey={setFormKey}
         darkMode={darkMode}
-        selectProject={selectProject}
-        onShowProject={showProject}
-        
+        selected={selected}
         />
       </Route>
       <Route exact path="/collection">
-        <Collection setSelectProject={setSelectProject} />
+        <Collection
+        selectProject={selectProject} 
+        />
       </Route>
     </Switch>
   </div>
