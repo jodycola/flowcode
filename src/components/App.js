@@ -8,7 +8,10 @@ import Collection from "./Collection"
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
+  const [selected, setSelected] = useState("")
 
+
+  // DARK MODE TOGGLE
   function toggleDark(){
     setDarkMode(!darkMode)
     if ( darkMode === false ) {
@@ -17,6 +20,13 @@ function App() {
       document.body.style.backgroundColor = "white";
     }
   }
+
+  // SET SELECTED PROJECT STATE FOR CRUD ACTIONS
+  function selectProject(project){
+    setSelected(project)
+  }
+  console.log(selected)
+
 
   return (
   <div>
@@ -27,10 +37,13 @@ function App() {
       <Route exact path="/">
         <Main
         darkMode={darkMode}
+        selected={selected}
         />
       </Route>
       <Route exact path="/collection">
-        <Collection />
+        <Collection
+        selectProject={selectProject} 
+        />
       </Route>
     </Switch>
   </div>
