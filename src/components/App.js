@@ -28,7 +28,6 @@ function App() {
   function selectProject(project){
     setSelected(project)
   }
-  console.log(selected)
 
 
   return (
@@ -43,6 +42,7 @@ function App() {
         setFormKey={setFormKey}
         darkMode={darkMode}
         selected={selected}
+        setSelected={setSelected}
         />
       </Route>
       <Route exact path="/collection">

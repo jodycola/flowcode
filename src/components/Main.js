@@ -1,16 +1,27 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Editor from "./Editor"
 import Display from "./Display"
 
 const url = "http://localhost:3000/projects"
 
-function Main({ darkMode, selected }){
+function Main({ darkMode, selected, setSelected }){
     const [html, setHtml] = useLocalStorage("html", "")
     const [css, setCss] = useLocalStorage("css", "")
     const [js, setJs] = useLocalStorage("js", "")
     const [formKey, setFormKey] = useState({html:"", css:"", js:""})
 
-
+    // CHECKS IF SOURCE DOC NEEDS TO BE UPDATED
+    // CLEARS THE SELECTED PROJECT DATA
+    useEffect(() => {
+        if (selected === "") {
+            return true
+        } else {
+            setHtml(selected.html)
+            setCss(selected.css)
+            setJs(selected.javascript)
+            setSelected("")
+        }
+    }, [setHtml, setCss, setJs, setSelected, selected])
 
     const srcDoc = (`
         <html>
@@ -18,19 +29,17 @@ function Main({ darkMode, selected }){
             <style>${css}</style>
             <script>${js}</script>
         </html>
-    `)
-
-
+        `)
 
     // LOCAL STORAGE HOOK
     function useLocalStorage(key, initialValue) {
         const [value, setValue] = useState(() => {
-            const item = window.localStorage.getItem(key)
+            const item = localStorage.getItem(key)
             return item ? JSON.parse(item) : initialValue
             // eslint-disable-next-line
             setValue(item)
         })
-        window.localStorage.setItem(key, JSON.stringify(value))
+        localStorage.setItem(key, JSON.stringify(value))
         return [value, setValue]
     }
 
@@ -55,6 +64,13 @@ function Main({ darkMode, selected }){
         .then(data => {
         console.log('Success:', data);
         })
+    }
+
+    // CLEARS ACE-EDITORS
+    function handleClear(){
+        setHtml("")
+        setCss("")
+        setJs("")
     }
 
     return (
@@ -96,6 +112,7 @@ function Main({ darkMode, selected }){
     
             />
             </div>
+            <button className="clear-button" onClick={handleClear}>Clear</button>
         </div>
     )
 }
