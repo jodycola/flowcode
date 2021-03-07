@@ -1,6 +1,6 @@
 import React from "react"
 
-function Project({ project, selectProject }){
+function Project({ project, selectProject, deleteProject }){
     const { title, html, css, javascript } = project
 
     function handleSelect(){
@@ -13,7 +13,7 @@ function Project({ project, selectProject }){
         <div className="content-container">
             <div className="card">
             <div className="content">
-               <div className="header">{title}</div>
+               <div className="header" onClick={() => deleteProject(project)}>{title}</div>
                 <div className="description">
                    <p>{html}</p>
                    <p>{css}</p>
