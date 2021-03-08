@@ -1,5 +1,8 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import { FaTrash } from "react-icons/fa"
+import { FaTrash } from "react-icons/fa"
+
 
 
 function Project({ project, selectProject, deleteProject, updateProject }){
@@ -10,8 +13,8 @@ function Project({ project, selectProject, deleteProject, updateProject }){
     }
 
     return (
-    <div className="project-container" onClick={handleSelect}>
-    <h1>{title}</h1>
+        <div className="project-container" onClick={handleSelect}>
+        
         <div className="content-container">
             <div className="card">
             <div className="content">
@@ -21,6 +24,11 @@ function Project({ project, selectProject, deleteProject, updateProject }){
                    <p>{css}</p>
                    <p>{javascript}</p>
                 </div>
+               <Link to="/" >
+                <span className="edit-icon" onClick={() => deleteProject(project)}>   
+                    <TiEdit />
+                </span>
+              </Link>
                 <span className="x-icon" onClick={() => deleteProject(project)}>   
                     <FaTrash />
                 </span>

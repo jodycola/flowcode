@@ -45,13 +45,17 @@ function Main({ darkMode, selected, setSelected }){
     // HANDLER FUNCTION
 
     function handleSaveUpdate (html, css, js) {
+        
         if(selected === ""){
-            fetch(`${url}`, {
+            
+            var projectTitle = prompt("Please enter a title")
+            
+            fetch(`${url}`, {                
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({html, css, js}),
+                body: JSON.stringify({html, css, js, projectTitle}),
                 })
                 .then(response => response.json())
                 .then(data => {
