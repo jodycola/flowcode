@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { Switch, Route } from "react-router-dom"
+
 
 // COMPONENTS
 import NavBar from "./NavBar"
 import Main from "./Main"
 import Collection from "./Collection"
 
-const url = "http://localhost:3000/projects"
-
 function App() {
   const [darkMode, setDarkMode] = useState(false)
   const [selected, setSelected] = useState("")
-  const [formKey, setFormKey] = useState(10)
-
 
   // DARK MODE TOGGLE
   function toggleDark(){
@@ -29,7 +26,6 @@ function App() {
     setSelected(project)
   }
 
-
   return (
   <div>
     <NavBar 
@@ -38,8 +34,6 @@ function App() {
     <Switch>
       <Route exact path="/">
         <Main
-        key={formKey}
-        setFormKey={setFormKey}
         darkMode={darkMode}
         selected={selected}
         setSelected={setSelected}

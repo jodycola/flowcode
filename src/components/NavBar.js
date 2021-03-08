@@ -12,10 +12,6 @@ function NavBar({ toggleDark }){
             Dark Mode
             </button>
 
-            {/* <button className="clear-mode" onClick={clearAll}>
-            Clear All
-            </button> */}
-
             <NavLink exact to="/" className="home-button">
                 Home
             </NavLink>

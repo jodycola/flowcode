@@ -6,6 +6,7 @@ const url = "http://localhost:3000/projects"
 function Collection({ selectProject }){
     const [projects, setProjects] = useState([])
 
+
     // FETCH PROJECT DATA AND SET STATE
     useEffect(() => {
         fetch(url)
@@ -21,6 +22,7 @@ function Collection({ selectProject }){
         .then(r => r.json())
         .then(setProjects(projects.filter((project) => project.id !== deleteProject.id)))
     }
+
 
     // MAPS OVER PROJECTS TO DISPLAY EACH ONE AS A PROJECT COMPONET
     const displayProject = projects.map((project) => {

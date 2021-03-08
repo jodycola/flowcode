@@ -8,7 +8,6 @@ function Main({ darkMode, selected, setSelected }){
     const [html, setHtml] = useLocalStorage("html", "")
     const [css, setCss] = useLocalStorage("css", "")
     const [js, setJs] = useLocalStorage("js", "")
-    const [formKey, setFormKey] = useState({html:"", css:"", js:""})
 
     // CHECKS IF SOURCE DOC NEEDS TO BE UPDATED
     // CLEARS THE SELECTED PROJECT DATA
@@ -19,9 +18,8 @@ function Main({ darkMode, selected, setSelected }){
             setHtml(selected.html)
             setCss(selected.css)
             setJs(selected.javascript)
-            setSelected("")
         }
-    }, [setHtml, setCss, setJs, setSelected, selected])
+    }, [setHtml, setCss, setJs, selected])
 
     const srcDoc = (`
         <html>
@@ -43,41 +41,59 @@ function Main({ darkMode, selected, setSelected }){
         return [value, setValue]
     }
 
-    function handleClear() {
-        setHtml("")
-        setCss("")
-        setJs("")
-    }
-
-
 
     // HANDLER FUNCTION
-    function handleSave(html, css, js){
-        fetch(`${url}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({html, css, js}),
-        })
-        .then(response => response.json())
-        .then(data => {
-        console.log('Success:', data);
-        })
+
+    function handleSaveUpdate (html, css, js) {
+        if(selected === ""){
+            fetch(`${url}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({html, css, js}),
+                })
+                .then(response => response.json())
+                .then(data => {
+                console.log('Success:', data);
+                })
+
+        } else {
+            const updatedProject = {
+                html: html,
+                css: css, 
+                js: js
+            }
+            fetch(`${url}/${selected.id}`, {
+                method: "PATCH", 
+                headers: {
+                    "Content-Type": "application/json",
+                }, 
+                body: JSON.stringify(updatedProject),
+                })
+                .then(response => response.json())
+                .then(console.log)
+            }
     }
+
+
+
+
 
     // CLEARS ACE-EDITORS
     function handleClear(){
         setHtml("")
         setCss("")
         setJs("")
+        setSelected("")
     }
 
     return (
         <div className="main-container">
-            <button className="save-button" onClick={() => handleSave(html, css, js)}>
+            <button className="save-button" onClick={() => handleSaveUpdate(html, css, js)}>
             Save
             </button>
+
             <button className="clear-all" onClick={handleClear}>
             Clear
             </button>
@@ -112,7 +128,6 @@ function Main({ darkMode, selected, setSelected }){
     
             />
             </div>
-            <button className="clear-button" onClick={handleClear}>Clear</button>
         </div>
     )
 }

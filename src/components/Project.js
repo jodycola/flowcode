@@ -1,6 +1,8 @@
 import React from "react"
+import { FaTrash } from "react-icons/fa"
 
-function Project({ project, selectProject, deleteProject }){
+
+function Project({ project, selectProject, deleteProject, updateProject }){
     const { title, html, css, javascript } = project
 
     function handleSelect(){
@@ -13,12 +15,15 @@ function Project({ project, selectProject, deleteProject }){
         <div className="content-container">
             <div className="card">
             <div className="content">
-               <div className="header" onClick={() => deleteProject(project)}>{title}</div>
+               <div className="header">{title}</div>
                 <div className="description">
                    <p>{html}</p>
                    <p>{css}</p>
                    <p>{javascript}</p>
                 </div>
+                <span className="x-icon" onClick={() => deleteProject(project)}>   
+                    <FaTrash />
+                </span>
             </div>
             </div>
         </div>
