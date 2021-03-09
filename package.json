@@ -12,6 +12,7 @@
     "ace-builds": "^1.4.12",
     "codemirror": "^5.59.4",
     "font-awesome": "^4.7.0",
+    "html2canvas": "^1.0.0-rc.7",
     "react": "^17.0.1",
     "react-ace": "^9.3.0",
     "react-dom": "^17.0.1",
