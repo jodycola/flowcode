@@ -3,7 +3,7 @@ import Project from "./Project"
 
 const url = "http://localhost:3000/projects"
 
-function Collection({ selectProject }){
+function Collection({ selectProject, darkMode }){
     const [projects, setProjects] = useState([])
 
 
@@ -31,14 +31,17 @@ function Collection({ selectProject }){
             project={project}
             selectProject={selectProject}
             deleteProject={deleteProject}
+            darkMode={darkMode}
         />
     })
 
 
     return (
         <div>
-            <h2>Project Collection</h2>
+            <h1 className="collection-header" style={darkMode ? {color: "white"} : {color: "black"}}>Collection</h1>
+            <div className="project-container">
             {displayProject}
+            </div>
         </div>
     )
 }

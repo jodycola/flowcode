@@ -98,7 +98,7 @@ function Main({ darkMode, selected, setSelected }){
             Save
             </button>
 
-            <button className="clear-all" onClick={handleClear}>
+            <button className="clear-button" onClick={handleClear}>
             Clear
             </button>
 

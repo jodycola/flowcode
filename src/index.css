@@ -11,8 +11,8 @@ body {
 
 .dark-mode {
     position: absolute;
-    right: 150px;
-    top: 15px;
+    right: 250px;
+    top: 43px;
     background-color:#555555; /* Green */
     border: none;
     color: white;
@@ -24,8 +24,8 @@ body {
 
 .project-collection {
     position: absolute;
-    right: 15px;
-    top: 15px;
+    right: 25px;
+    top: 45px;
     background-color: #555555; /* Green */
     border: none;
     color: white;
@@ -37,8 +37,8 @@ body {
 
 .save-button {
     position: absolute;
-    right: 283px;
-    top: 15px;
+    right: 385px;
+    top: 43px;
     background-color: #555555; /* Green */
     border: none;
     color: white;
@@ -50,8 +50,8 @@ body {
 
 .home-button {
     position: absolute;
-    right: 375px;
-    top: 15px;
+    right: 150px;
+    top: 43px;
     background-color: #555555; /* Green */
     border: none;
     color: white;
@@ -61,10 +61,14 @@ body {
     font-size: 16px; 
 }
 
+.home-button:hover, .clear-button:hover, .save-button:hover, .project-collection:hover, .dark-mode:hover{
+    background-color: #175eed;
+}
+
 .clear-button {
     position: absolute;
-    right: 500px;
-    top: 15px;
+    right: 475px;
+    top: 43px;
     background-color: #555555; /* Green */
     border: none;
     color: white;
@@ -79,16 +83,6 @@ body {
     position: absolute;
 }
 
-/* Display Properties */
-/* .frame {
-    position: absolute;
-    right: 0px;
-    width: 60%;
-    height: 90%;
-    border: 2px solid black;
-    border-radius: 5px;
-
-} */
 .frame {
     position: absolute;
     right: 0px;
@@ -105,7 +99,6 @@ body {
 }
 
 /* cards */
-
 .header {
     font-weight: 700;
 }
@@ -113,34 +106,46 @@ body {
 .card{
     border: 1px solid gray;
     border-radius: 5px;
-    width: 15%;
+    width: 100%;
     padding: 1em;
     margin: 1em;
     float: left;
 }
 
 .content-container{
-    width: 100%;
-    float: left;
-    display: inline-block;
-}
-
-.clear-all {
-    position: absolute;
-    /* right: 375px; */
-    top: 13px;
-    background-color: #555555;
-    border: none;
-    color: white;
-    padding: 10px 24px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
+    width: 33%;
+    display: flex;
 }
 
 .x-icon {
-    color: black;
-    font-weight: 900 ;
-    margin-left: 86%;
     cursor: pointer;
+    position: relative;
+    left: 85%;
+    font-size: 22px;
 }
+
+.edit-icon {
+    cursor: pointer;
+    position: relative;
+    left: 80%;
+    font-size: 24px;
+}
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.collection-header {
+    text-align: center;
+}
+
+.logo-icon{
+    color: black;
+    font-size: 61px;
+    position: absolute;
+    top: 1%;
+}
+
+
+

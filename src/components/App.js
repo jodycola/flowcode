@@ -30,6 +30,7 @@ function App() {
   <div>
     <NavBar 
     toggleDark={toggleDark}
+    darkMode={darkMode}
     />
     <Switch>
       <Route exact path="/">
@@ -42,6 +43,7 @@ function App() {
       <Route exact path="/collection">
         <Collection
         selectProject={selectProject} 
+        darkMode={darkMode}
         />
       </Route>
     </Switch>
