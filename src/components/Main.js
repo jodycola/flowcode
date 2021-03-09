@@ -25,7 +25,7 @@ function Main({ darkMode, selected, setSelected }){
         <html>
             <body>${html}</body>
             <style>${css}</style>
-            <script>${js}</script>
+            <script defer>${js}</script>
         </html>
         `)
 
@@ -79,10 +79,6 @@ function Main({ darkMode, selected, setSelected }){
                 .then(console.log)
             }
     }
-
-
-
-
 
     // CLEARS ACE-EDITORS
     function handleClear(){

@@ -2,7 +2,6 @@
 body {
     margin: 5;
     font-family: sans-serif;
-
 }
 
 /* NavBar Prperties */
@@ -103,33 +102,58 @@ body {
 /* cards */
 .header {
     font-weight: 700;
+    text-decoration: underline;
 }
 
-.card{
+img {
+    opacity: 1;
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.edit-buttons {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.card:hover img {
+  opacity: 0.3;
+}
+
+.card:hover .edit-buttons {
+  opacity: 1;
+}
+
+.card {
+    width: 80%;
     border: 2px solid gray;
     border-radius: 5px;
-    width: 100%;
     padding: 1em;
     margin: 1em;
     float: left;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.content-container{
+.content-container {
     width: 33%;
     display: flex;
+    text-align: center;
+    padding: 10px 20px;
 }
 
-.x-icon {
+.edit-buttons {
     cursor: pointer;
     position: relative;
-    left: 85%;
-    font-size: 22px;
-}
-
-.edit-icon {
-    cursor: pointer;
-    position: relative;
-    left: 80%;
+    text-align: center;
     font-size: 24px;
 }
 
