@@ -48,6 +48,7 @@ function App() {
         allTheme={allTheme}
         selected={selected}
         setSelected={setSelected}
+        toggleTheme={toggleTheme}
         />
       </Route>
       <Route exact path="/collection">

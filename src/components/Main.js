@@ -4,7 +4,7 @@ import Display from "./Display"
 
 const url = "http://localhost:3000/projects"
 
-function Main({ darkMode, allTheme, selected, setSelected }){
+function Main({ darkMode, allTheme, toggleTheme, selected, setSelected }){
     const [html, setHtml] = useLocalStorage("html", "")
     const [css, setCss] = useLocalStorage("css", "")
     const [js, setJs] = useLocalStorage("js", "")
@@ -97,6 +97,18 @@ function Main({ darkMode, allTheme, selected, setSelected }){
             <button className="clear-button" onClick={handleClear}>
             Clear
             </button>
+
+            <select className="theme-filter" onChange={toggleTheme}>
+                <option value={allTheme ? "twilight" : "monokai"}>Twilight</option>
+                <option value={allTheme ? "monokai" : "kuroir"}>Monokai</option>
+                <option value={allTheme ? "solarized_dark": "monokai"}>Solarized dark</option>
+                <option value={allTheme ? "solarized_light" : "monokai"}>Solarized light</option>
+                <option value={allTheme ? "kuroir" : "monokai"}>Kuroir</option>
+                <option value={allTheme ? "xcode" : "monokai"}>Xcode</option>
+                <option value={allTheme ? "textmate" : "monokai"}>Textmate</option>
+                <option value={allTheme ? "terminal" : "monokai"}>Terminal</option>
+                <option value={allTheme ? "tomorrow" : "monokai"}>Tomorrow</option>
+            </select>
 
             <div className="editor-panel">
             <Editor 

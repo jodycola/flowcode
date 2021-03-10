@@ -4,7 +4,7 @@ import { GiFoundryBucket } from "react-icons/gi"
 
 
 
-function NavBar({ toggleDark, darkMode, allTheme, toggleTheme }){
+function NavBar({ toggleDark, darkMode}){
 
 
     return (
@@ -21,27 +21,7 @@ function NavBar({ toggleDark, darkMode, allTheme, toggleTheme }){
             </button>
 
 
-            <select className="theme-filter" onChange={toggleTheme}>
-                <option value={allTheme ? "twilight" : "monokai"}>Twilight</option>
-                <option value={allTheme ? "solarized_dark": "monokai"}>Solarized dark</option>
-                <option value={allTheme ? "solarized_light" : "monokai"}>Solarized light</option>
-                <option value={allTheme ? "kuroir" : "monokai"}>Kuroir</option>
-                <option value={allTheme ? "xcode" : "monokai"}>Xcode</option>
-                <option value={allTheme ? "textmate" : "monokai"}>Textmate</option>
-                <option value={allTheme ? "terminal" : "monokai"}>Terminal</option>
-                <option value={allTheme ? "tomorrow" : "monokai"}>Tomorrow</option>
-            </select>
-
-
-            {/* <div className="dropdown">
-            <button className="dropbtn"> DropDown</button>
-            <div className = "dropdown-content">
-                <option>theme1</option>
-                <option>theme1</option>
-                <option>theme1</option>
-                <option>theme1</option>
-            </div>
-            </div> */}
+      
 
             <NavLink exact to="/" className="home-button">
                 Home
