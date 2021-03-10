@@ -177,5 +177,17 @@ img {
     top: 1%;
 }
 
+.theme-filter{
+    width: 80px;
+    height:38px;
+    font-size: 16px;
+    position: absolute;
+    right: 569px;
+    top: 43px;
+    background-color: #555555;
+    color: #fff;
+    border: none;
+}
+
 
 

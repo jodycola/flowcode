@@ -9,7 +9,12 @@ import Collection from "./Collection"
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
+  const [allTheme, setAllTheme] = useState(false)
   const [selected, setSelected] = useState("")
+
+  function toggleTheme(event){
+    setAllTheme(event.target.value)
+  }
 
   // DARK MODE TOGGLE
   function toggleDark(){
@@ -21,6 +26,8 @@ function App() {
     }
   }
 
+
+
   // SET SELECTED PROJECT STATE FOR CRUD ACTIONS
   function selectProject(project){
     setSelected(project)
@@ -31,11 +38,14 @@ function App() {
     <NavBar 
     toggleDark={toggleDark}
     darkMode={darkMode}
-    />
+    allTheme={allTheme}
+    toggleTheme={toggleTheme}
+       />
     <Switch>
       <Route exact path="/">
         <Main
         darkMode={darkMode}
+        allTheme={allTheme}
         selected={selected}
         setSelected={setSelected}
         />

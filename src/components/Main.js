@@ -4,7 +4,7 @@ import Display from "./Display"
 
 const url = "http://localhost:3000/projects"
 
-function Main({ darkMode, selected, setSelected }){
+function Main({ darkMode, allTheme, selected, setSelected }){
     const [html, setHtml] = useLocalStorage("html", "")
     const [css, setCss] = useLocalStorage("css", "")
     const [js, setJs] = useLocalStorage("js", "")
@@ -105,6 +105,8 @@ function Main({ darkMode, selected, setSelected }){
                 value={html}
                 onChange={setHtml}
                 darkMode={darkMode}
+                allTheme={allTheme}
+                
             />
             <Editor 
                 mode="css"
@@ -112,6 +114,8 @@ function Main({ darkMode, selected, setSelected }){
                 value={css}
                 onChange={setCss}
                 darkMode={darkMode}
+                allTheme={allTheme}
+                
             />
             <Editor 
                 mode="javascript"
@@ -119,6 +123,8 @@ function Main({ darkMode, selected, setSelected }){
                 value={js}
                 onChange={setJs}
                 darkMode={darkMode}
+                allTheme={allTheme}
+                
             />
             </div>
             <div className="display-panel">
