@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Project from "./Project"
 
-const url = "http://localhost:3000/projects"
+const url = "https://mod4project.herokuapp.com/projects"
 
 function Collection({ selectProject, darkMode }){
     const [projects, setProjects] = useState([])

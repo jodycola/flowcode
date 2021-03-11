@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import Editor from "./Editor"
 import Display from "./Display"
 
-const url = "http://localhost:3000/projects"
+const url = "https://mod4project.herokuapp.com/projects"
 
 function Main({ darkMode, allTheme, toggleTheme, selected, setSelected }){
     const [html, setHtml] = useLocalStorage("html", "")
